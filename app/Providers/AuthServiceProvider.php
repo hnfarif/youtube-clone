@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Channel;
+use App\Policies\ChannelPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,6 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
+        Channel::class => ChannelPolicy::class,
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 

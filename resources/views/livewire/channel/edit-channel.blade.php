@@ -1,7 +1,10 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
-
+    @if ($channel->image)
+    <img src="{{ asset('images'. '/'. $channel->image) }}" alt="">
+    @endif
     <form wire:submit.prevent="update">
+
 
         <div class="form-group">
             <label for="name">Name</label>
@@ -30,6 +33,25 @@
 
         </div>
         @error('channel.description')
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+        @enderror
+
+        <div class="form-group">
+
+            <input type="file" wire:model="image">
+
+        </div>
+
+        <div class="form-group w-50">
+            @if ($image)
+            Photo Preview
+            <img src="{{ $image->temporaryUrl() }}" alt="" class="img-thumbnail">
+            @endif
+        </div>
+
+        @error('image')
         <div class="alert alert-danger">
             {{ $message }}
         </div>
