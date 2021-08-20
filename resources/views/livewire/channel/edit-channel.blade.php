@@ -1,7 +1,7 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
     @if ($channel->image)
-    <img src="{{ asset('images'. '/'. $channel->image) }}" alt="">
+    <img src="{{ asset('images/'. $channel->image) }}" alt="">
     @endif
     <form wire:submit.prevent="update">
 
