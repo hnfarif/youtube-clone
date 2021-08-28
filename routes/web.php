@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/videos/{channel}/create', CreateVideo::class)->name('video.create');
 
-    Route::get('/videos/{channel}/edit', EditVideo::class)->name('video.edit');
+    Route::get('/videos/{channel}/{video}/edit', EditVideo::class)->name('video.edit');
 
     Route::get('/videos/{channel}', AllVideo::class)->name('video.all');
 });

@@ -20,7 +20,7 @@
 
                             <input type="file" wire:model="videoFile">
                         </form>
-                        @error('videofile')
+                        @error('videoFile')
                         <div class="alert alert-danger">
                             {{ $message }}
                         </div>
