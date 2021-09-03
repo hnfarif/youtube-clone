@@ -21,18 +21,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('test', function(){
+// Route::get('test', function(){
 
-    return view('test');
-});
+//     return view('test');
+// });
 
 Route::middleware('auth')->group(function(){
 
     Route::get('/channel/{channel}/edit', [ChannelController::class, 'edit'])->name('channel.edit');
+
 });
 
 Route::middleware('auth')->group(function(){
@@ -41,5 +41,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/videos/{channel}/{video}/edit', EditVideo::class)->name('video.edit');
 
-    Route::get('/videos/{channel}', AllVideo::class)->name('video.all');
+    Route::get('/video', AllVideo::class)->name('video.all');
 });
+
+Auth::routes();
