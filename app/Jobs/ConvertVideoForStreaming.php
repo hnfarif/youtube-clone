@@ -11,6 +11,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ConvertVideoForStreaming implements ShouldQueue
 {
@@ -63,5 +65,14 @@ class ConvertVideoForStreaming implements ShouldQueue
             'processed' => true,
             'processed_file' => $this->video->uid. '.m3u8'
         ]);
+
+        //delete temp videos
+        Storage::disk('videos-temp')
+        ->delete($this->video->path);
+
+        //jika ingin menampilkan log di laravel, cek lognya di storage->app->logs->laravel.log
+
+        // Log::info($this->video->path. 'video was deleted from videos-temp folder');
+
     }
 }

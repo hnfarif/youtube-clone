@@ -1,4 +1,4 @@
-<div>
+<div @if($video->processing_percentage < 100) wire:poll @endif>
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="container">
         <div class="row justify-content-center">
