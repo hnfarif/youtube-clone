@@ -19,11 +19,16 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    @stack('custom-css')
     <!-- meterialize css for icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    {{-- Custom Css --}}
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
     @livewireStyles
 </head>
@@ -108,6 +113,7 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
     @livewireScripts
 </body>
 
