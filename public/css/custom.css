@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+}
+
 .video-container {
     width: 100%;
     height: 490px;
     position: relative;
 
 
+}
+
+.grey-text {
+    color: #909090;
 }

@@ -23,12 +23,12 @@
     <!-- meterialize css for icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    {{-- Custom Css --}}
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{-- Custom Css --}}
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
     @livewireStyles
 </head>
@@ -109,7 +109,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>
