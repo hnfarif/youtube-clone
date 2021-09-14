@@ -7,7 +7,7 @@
 
             <div class="ml-2">
                 <h4>{{ $channel->name }}</h4>
-                <div class="grey-text text-sm">{{ $channel->subscribers() }} Subscribers</div>
+                <div class="grey-text text-sm">{{ $channel->subscriptions()->count() }} Subscribers</div>
             </div>
         </div>
 

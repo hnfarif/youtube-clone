@@ -50,5 +50,6 @@ class ChannelInfo extends Component
             ]);
             $this->userSubscribed = true;
         }
+        // $this->channel = $this->channel;
     }
 }
