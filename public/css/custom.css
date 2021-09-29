@@ -57,3 +57,16 @@ body {
     background-color: red;
     border: none;
 }
+
+
+.comment-form-control {
+    width: 100%;
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 1px solid #919191;
+
+}
+
+.comment-form-control:focus {
+    outline: none;
+}
