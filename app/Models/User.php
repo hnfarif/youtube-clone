@@ -58,7 +58,7 @@ class User extends Authenticatable
 
     public function subscribedChannels()
     {
-        return $this->belongsToMany(Channel::class, 'subscription');
+        return $this->belongsToMany(Channel::class, 'subscriptions');
     }
 
     public function isSubscribedTo(Channel $channel)
