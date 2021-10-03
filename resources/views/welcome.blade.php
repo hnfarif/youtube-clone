@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    {{-- Search --}}
+
     <div class="row my-3">
         @if (!$channels->count())
         <p>You are not subscribed to any channel</p>
@@ -11,7 +13,8 @@
         <div class="col-12 col-md-6 col-lg-4">
             <a href="{{ route('video.watch', $video) }}" class="card-link">
                 <div class="card mb-4" style="width: 333px; border: none;">
-                    <img src="{{ asset($video->thumbnail) }}" alt="Card image cap" style="height: 174px; width:333px;">
+
+                    @include('includes.videoThumbnail')
 
                     <div class="card-body">
                         <div class="d-flex align-items-center">

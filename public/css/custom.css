@@ -81,3 +81,17 @@ body {
     color: #363739;
     text-decoration: none;
 }
+
+.search-btn {
+    border: none;
+
+}
+
+.search-btn:focus {
+    border: none;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}

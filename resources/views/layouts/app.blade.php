@@ -48,7 +48,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ">
                         @auth
 
                         <li class="nav-item">
@@ -57,7 +57,20 @@
                         </li>
                         @endauth
                     </ul>
+                    <div class="col-8">
 
+                        <form action="/search" method="GET">
+                            <div class="d-flex align-items-center my-3">
+                                <input type="text" name="query" id="query" class="form-control" placeholder="Search"
+                                    value="{{ $q ?? '' }}">
+                                <button class="search-btn" type="submit">
+                                    <i class="material-icons">
+                                        search
+                                    </i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -89,7 +102,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a href="{{ route('channel.edit', ['channel' => Auth::user()->channel]) }}"
+                                <a href="{{ route('index', ['channel' => Auth::user()->channel]) }}"
                                     class="dropdown-item">
                                     {{ Auth::user()->channel->name }}
                                 </a>

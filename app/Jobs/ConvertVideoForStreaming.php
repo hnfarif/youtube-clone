@@ -41,7 +41,7 @@ class ConvertVideoForStreaming implements ShouldQueue
         $low = (new X264)->setKiloBitrate(500);
         $high = (new X264)->setKiloBitrate(1000);
 
-        FFMpeg::fromDisk('videos-temp')
+        $media = FFMpeg::fromDisk('videos-temp')
         ->open($this->video->path)
         ->exportForHLS()
         ->addFormat($low, function($filters){
@@ -61,9 +61,12 @@ class ConvertVideoForStreaming implements ShouldQueue
         ->inFormat(new \FFMpeg\Format\Audio\Aac)
         ->save($destination);
 
+        $seconds = $media->getDurationInSeconds();
+
         $this->video->update([
             'processed' => true,
-            'processed_file' => $this->video->uid. '.m3u8'
+            'processed_file' => $this->video->uid. '.m3u8',
+            'duration' => $this->formatDuration($seconds)
         ]);
 
         //delete temp videos
@@ -73,6 +76,14 @@ class ConvertVideoForStreaming implements ShouldQueue
         //jika ingin menampilkan log di laravel, cek lognya di storage->app->logs->laravel.log
 
         // Log::info($this->video->path. 'video was deleted from videos-temp folder');
+
+    }
+
+    public function formatDuration($seconds)
+    {
+        $duration = gmdate('H:i:s', $seconds);
+
+        return $duration;
 
     }
 }

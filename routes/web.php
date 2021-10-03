@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChannelController;
+use App\Http\Controllers\SearchController;
 use App\Http\Livewire\Video\AllVideo;
 use App\Http\Livewire\Video\CreateVideo;
 use App\Http\Livewire\Video\EditVideo;
@@ -60,5 +61,7 @@ Route::middleware('auth')->group(function(){
 });
 
 Route::get('/watch/{video}', WatchVideo::class)->name('video.watch');
+Route::get('/channels/{channel}', [ChannelController::class, 'index'])->name('index');
+Route::get('/search/', [SearchController::class, 'search'])->name('search');
 
 Auth::routes();
